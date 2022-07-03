@@ -1,0 +1,30 @@
+{
+  "name": "ski-db-api",
+  "version": "1.0.0",
+  "description": "API to support Ski DB App",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eric-benny/ski-db-api.git"
+  },
+  "author": "benny.eric@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eric-benny/ski-db-api/issues"
+  },
+  "homepage": "https://github.com/eric-benny/ski-db-api#readme",
+  "devDependencies": {
+    "serverless-offline": "^8.8.0",
+    "serverless-bundle": "4.3.1",
+    "serverless-dotenv-plugin": "^2.1.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.4.2",
+    "mongoose-paginate": "^5.0.3"
+  }
+}
