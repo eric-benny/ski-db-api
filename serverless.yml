@@ -24,6 +24,8 @@ provider:
   name: aws
   runtime: nodejs12.x
   stage: ${env:STAGE}
+  environment:
+      DB: mongodb+srv://ebenny:nT0mbtBdVImw2Jbt@decently-edgy-vides.bikx1.mongodb.net/skisDB?retryWrites=true&w=majority
 
 plugins:
   - serverless-offline
