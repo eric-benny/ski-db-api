@@ -23,15 +23,12 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: nodejs12.x
+  stage: ${env:STAGE}
 
 plugins:
   - serverless-offline
   - serverless-bundle # Package our functions with Webpack
   - serverless-dotenv-plugin # Load .env as environment variables
-
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iam:
