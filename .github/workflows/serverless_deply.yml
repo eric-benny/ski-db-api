@@ -1,0 +1,42 @@
+name: Deploy serverless
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - name: serverless deploy dev
+      if: ${{ github.ref_name == 'develop' }}
+      uses: serverless/github-action@v3.1
+      with:
+        args: -c "serverless plugin install --name serverless-bundle && serverless deploy"
+        entrypoint: /bin/sh
+      env:
+        STAGE: dev
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - name: serverless deploy prod
+      if: ${{ github.ref_name == 'main' }}
+      uses: serverless/github-action@v3.1
+      with:
+        args: -c "serverless plugin install --name serverless-bundle && serverless deploy"
+        entrypoint: /bin/sh
+      env:
+        STAGE: prod
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

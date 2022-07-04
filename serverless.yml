@@ -23,15 +23,14 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: nodejs12.x
+  stage: ${env:STAGE}
+  environment:
+      DB: mongodb+srv://ebenny:nT0mbtBdVImw2Jbt@decently-edgy-vides.bikx1.mongodb.net/skisDB?retryWrites=true&w=majority
 
 plugins:
   - serverless-offline
   - serverless-bundle # Package our functions with Webpack
   - serverless-dotenv-plugin # Load .env as environment variables
-
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iam:
