@@ -1,17 +1,11 @@
-const mongoose = require('mongoose');
-
 const { SkiModel } = require('../database/model/ski');
 const response = require('../libs/response');
+const { connectToDatabase } = require('../libs/db');
 
-let cachedDB = null;
-
-async function connectToDatabase (uri, options = {}) {
-  if (!cachedDB) cachedDB = await mongoose.connect(uri);
-}
 
 export const create = async (event, context) => {
   try {
-    await connectToDatabase(process.env.DB);
+    await connectToDatabase();
     console.log("connected to db");
 
     const data = JSON.parse(event.body);
