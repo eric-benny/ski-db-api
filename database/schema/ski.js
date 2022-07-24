@@ -49,4 +49,6 @@ const skiSchema = new mongoose.Schema({
     images: [imageSchema]
 }, {collection: 'skis'});
 
+skiSchema.index({ manufacturer: 1, model: 1, yearReleased: 1 }, {unique: true});
+
 export default skiSchema;
