@@ -61,6 +61,31 @@ plugins:
 #    - include-me-dir/**
 
 functions:
+  createManufacturer:
+    handler: functions/createManufacturer.create
+    events:
+      - http:
+          path: manufacturers
+          method: post
+          cors: true
+  createSkiFamily:
+    handler: functions/skiFamily.create
+    events:
+      - http:
+          path: skiFamilies
+          method: post
+          cors: true
+  getSkiFamily:
+    handler: functions/skiFamily.get
+    events:
+      - http:
+          path: /manufacturer/{manufacturer}/skiFamilies
+          method: get
+          cors: true
+      - http:
+          path: skiFamilies
+          method: get
+          cors: true
   createSki:
     handler: functions/createSki.create
     events:

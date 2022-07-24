@@ -11,9 +11,11 @@ const skiSchema = new mongoose.Schema({
     yearCurrent: Number,
     yearReleased: Number,
     yearsActive: [Number],
-    retired: Boolean,
-    manufacturer: String,
+    retired: { type: Boolean, default: false},
+    manufacturer: { type: Schema.Types.ObjectId, ref: 'Manufacturer' },
     model: String,
+    parent: { type: Schema.Types.ObjectId, ref: 'Ski', default: null },
+    family: { type: Schema.Types.ObjectId, ref: 'SkiFamily' },
     lengths: [Number],
     reviewedLength: Number,
     measuredLength: Number,
@@ -46,5 +48,7 @@ const skiSchema = new mongoose.Schema({
     notes: [noteSchema],
     images: [imageSchema]
 }, {collection: 'skis'});
+
+skiSchema.index({ manufacturer: 1, model: 1, yearReleased: 1 }, {unique: true});
 
 export default skiSchema;
