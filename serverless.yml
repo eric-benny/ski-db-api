@@ -62,11 +62,18 @@ plugins:
 
 functions:
   createManufacturer:
-    handler: functions/createManufacturer.create
+    handler: functions/manufacturer.create
     events:
       - http:
           path: manufacturers
           method: post
+          cors: true
+  getManufacturer:
+    handler: functions/manufacturer.get
+    events:
+      - http:
+          path: manufacturers
+          method: get
           cors: true
   createSkiFamily:
     handler: functions/skiFamily.create

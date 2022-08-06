@@ -24,3 +24,16 @@ export const create = async (event, context) => {
     return response.fail({ message: e.message });
   }
 };
+
+export const get = async (event, context) => {
+  try {
+    await connectToDatabase();
+    const manufacturers = await ManufacturerModel.find({});
+
+    return response.success({
+      data: manufacturers
+    });
+  } catch (e) {
+    return response.fail({ message: e.message });
+  }
+};

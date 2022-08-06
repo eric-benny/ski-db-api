@@ -30,11 +30,11 @@ const skiSchema = new mongoose.Schema({
     sidcutStated: Number,
     splayTip: Number,
     splayTail: Number,
-    camberStated: Number,
-    camberMeas: Number,
+    camberStated: String,
+    camberMeas: String,
     core: String,
-    mountPointRec: [String],
-    mountPointRev: String,
+    mountPointFac: [String],
+    mountPointBlist: [String],
     bootsRev: String,
     bindingRev: String,
     flexTip: String,
@@ -46,7 +46,8 @@ const skiSchema = new mongoose.Schema({
     skiComps: [{ type: Schema.Types.ObjectId, ref: 'SkiComp' }],
     guideInfo: [{ type: Schema.Types.ObjectId, ref: 'GuideSki' }],
     notes: [noteSchema],
-    images: [imageSchema]
+    images: [imageSchema],
+    url: String
 }, {collection: 'skis'});
 
 skiSchema.index({ manufacturer: 1, model: 1, yearReleased: 1 }, {unique: true});
