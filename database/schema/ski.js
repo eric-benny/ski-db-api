@@ -7,17 +7,8 @@ const imageSchema = new mongoose.Schema({
     description: String
 });
 
-const skiSchema = new mongoose.Schema({
-    yearCurrent: Number,
-    yearReleased: Number,
-    yearsActive: [Number],
-    retired: { type: Boolean, default: false},
-    manufacturer: { type: Schema.Types.ObjectId, ref: 'Manufacturer' },
-    model: String,
-    parent: { type: Schema.Types.ObjectId, ref: 'Ski', default: null },
-    family: { type: Schema.Types.ObjectId, ref: 'SkiFamily' },
-    lengths: [Number],
-    reviewedLength: Number,
+const skiSpecSchema = new mongoose.Schema({
+    length: Number,
     measuredLength: Number,
     weightStated: Number,
     weightMeas: [Number],
@@ -35,14 +26,25 @@ const skiSchema = new mongoose.Schema({
     core: String,
     mountPointFac: [String],
     mountPointBlist: [String],
-    bootsRev: String,
-    bindingRev: String,
     flexTip: String,
     flexShovel: String,
     flexFront: String,
     flexFoot: String,
     flexBack: String,
     flexTail: String,
+});
+
+const skiSchema = new mongoose.Schema({
+    yearCurrent: Number,
+    yearReleased: Number,
+    yearsActive: [Number],
+    retired: { type: Boolean, default: false},
+    manufacturer: { type: Schema.Types.ObjectId, ref: 'Manufacturer' },
+    model: String,
+    parent: { type: Schema.Types.ObjectId, ref: 'Ski', default: null },
+    family: { type: Schema.Types.ObjectId, ref: 'SkiFamily' },
+    lengths: [Number],
+    spec: skiSpecSchema,
     skiComps: [{ type: Schema.Types.ObjectId, ref: 'SkiComp' }],
     guideInfo: [{ type: Schema.Types.ObjectId, ref: 'GuideSki' }],
     notes: [noteSchema],
