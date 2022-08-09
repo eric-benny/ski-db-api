@@ -44,7 +44,7 @@ const skiSchema = new mongoose.Schema({
     parent: { type: Schema.Types.ObjectId, ref: 'Ski', default: null },
     family: { type: Schema.Types.ObjectId, ref: 'SkiFamily' },
     lengths: [Number],
-    spec: skiSpecSchema,
+    specs: [skiSpecSchema],
     skiComps: [{ type: Schema.Types.ObjectId, ref: 'SkiComp' }],
     guideInfo: [{ type: Schema.Types.ObjectId, ref: 'GuideSki' }],
     notes: [noteSchema],
