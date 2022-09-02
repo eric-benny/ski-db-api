@@ -93,6 +93,38 @@ functions:
           path: skiFamilies
           method: get
           cors: true
+  createUser:
+    handler: functions/user.create
+    events:
+      - http:
+          path: users
+          method: post
+          cors: true
+  getUser:
+    handler: functions/user.get
+    events:
+      - http:
+          path: /users/{userId}
+          method: get
+          cors: true
+      - http:
+          path: /users
+          method: get
+          cors: true
+  addUserFavorite:
+    handler: functions/user.addFavorite
+    events:
+      - http:
+          path: users/{userId}/favorites/{skiId}
+          method: post
+          cors: true
+  removeUserFavorite:
+    handler: functions/user.removeFavorite
+    events:
+      - http:
+          path: users/{userId}/favorites/{skiId}
+          method: delete
+          cors: true
   createSki:
     handler: functions/createSki.create
     events:

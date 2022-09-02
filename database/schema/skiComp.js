@@ -21,6 +21,6 @@ const skiCompSchema = new mongoose.Schema({
     secondarySki: { type: Schema.Types.ObjectId, ref: 'Ski' },
     comps: [comparisonSchema],
     notes: [noteSchema]
-});
+}, {collection: 'skiComps'});
 
 export default skiCompSchema;
