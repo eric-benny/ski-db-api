@@ -132,6 +132,13 @@ functions:
           path: skis
           method: post
           cors: true
+  updateSki:
+    handler: functions/updateSki.update
+    events:
+      - http:
+          path: skis/{skiId}
+          method: put
+          cors: true
   getSkis:
     handler: functions/getSkis.get
     events:
