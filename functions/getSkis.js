@@ -8,11 +8,21 @@ const { connectToDatabase } = require('../libs/db');
 export const get = async (event, context) => {
   try {
     await connectToDatabase();
-    const skis = await SkiModel.find({}).populate(['manufacturer', 'family']);
+    const skiId = event.pathParameters ? event.pathParameters.skiId : undefined;
 
-    return response.success({
-      data: skis
-    });
+    if (skiId) {
+      const ski = await SkiModel.find({ _id: skiId }).populate(['manufacturer', 'family']);
+      return response.success({
+        message: 'Ski',
+        data: ski
+      });
+    } else {
+      const skis = await SkiModel.find({}).populate(['manufacturer', 'family']);
+      return response.success({
+        message: 'Skis',
+        data: skis
+      });
+    }
   } catch (e) {
     return response.fail({ message: e.message });
   }
