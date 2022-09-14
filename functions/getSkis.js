@@ -11,7 +11,7 @@ export const get = async (event, context) => {
     const skiId = event.pathParameters ? event.pathParameters.skiId : undefined;
 
     if (skiId) {
-      const ski = await SkiModel.find({ _id: skiId }).populate(['manufacturer', 'family']);
+      const ski = await SkiModel.findOne({ _id: skiId }).populate(['manufacturer', 'family']);
       return response.success({
         message: 'Ski',
         data: ski
