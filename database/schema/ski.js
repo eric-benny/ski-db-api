@@ -49,7 +49,10 @@ const skiSchema = new mongoose.Schema({
     guideInfo: [{ type: Schema.Types.ObjectId, ref: 'GuideSki' }],
     notes: [noteSchema],
     images: [imageSchema],
-    url: String
+    url: String,
+    firstLook: String,
+    flashReview: String,
+    deepDive: String,
 }, {collection: 'skis'});
 
 skiSchema.index({ manufacturer: 1, model: 1, yearReleased: 1 }, {unique: true});
