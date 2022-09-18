@@ -6,6 +6,6 @@ const guideSkiSchema = new mongoose.Schema({
     year: Number,
     category: String,
     blurb: String
-});
+}, {collection: 'guideSkis'});
 
 export default guideSkiSchema;

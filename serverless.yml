@@ -22,7 +22,7 @@ frameworkVersion: '3'
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs16.x
   stage: dev
 
 plugins:
@@ -61,6 +61,70 @@ plugins:
 #    - include-me-dir/**
 
 functions:
+  createManufacturer:
+    handler: functions/manufacturer.create
+    events:
+      - http:
+          path: manufacturers
+          method: post
+          cors: true
+  getManufacturer:
+    handler: functions/manufacturer.get
+    events:
+      - http:
+          path: manufacturers
+          method: get
+          cors: true
+  createSkiFamily:
+    handler: functions/skiFamily.create
+    events:
+      - http:
+          path: skiFamilies
+          method: post
+          cors: true
+  getSkiFamily:
+    handler: functions/skiFamily.get
+    events:
+      - http:
+          path: /manufacturer/{manufacturer}/skiFamilies
+          method: get
+          cors: true
+      - http:
+          path: skiFamilies
+          method: get
+          cors: true
+  createUser:
+    handler: functions/user.create
+    events:
+      - http:
+          path: users
+          method: post
+          cors: true
+  getUser:
+    handler: functions/user.get
+    events:
+      - http:
+          path: /users/{userId}
+          method: get
+          cors: true
+      - http:
+          path: /users
+          method: get
+          cors: true
+  addUserFavorite:
+    handler: functions/user.addFavorite
+    events:
+      - http:
+          path: users/{userId}/favorites/{skiId}
+          method: post
+          cors: true
+  removeUserFavorite:
+    handler: functions/user.removeFavorite
+    events:
+      - http:
+          path: users/{userId}/favorites/{skiId}
+          method: delete
+          cors: true
   createSki:
     handler: functions/createSki.create
     events:
@@ -68,11 +132,22 @@ functions:
           path: skis
           method: post
           cors: true
+  updateSki:
+    handler: functions/updateSki.update
+    events:
+      - http:
+          path: skis/{skiId}
+          method: put
+          cors: true
   getSkis:
     handler: functions/getSkis.get
     events:
       - http:
           path: skis
+          method: get
+          cors: true
+      - http:
+          path: /skis/{skiId}
           method: get
           cors: true
 #    The following are a few example events you can configure
