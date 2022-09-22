@@ -168,6 +168,13 @@ functions:
           path: /skiComps/{skiCompId}
           method: get
           cors: true
+  updateSkiComp:
+    handler: functions/updateSkiComp.update
+    events:
+      - http:
+          path: skiComps/{skiCompId}
+          method: put
+          cors: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
