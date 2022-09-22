@@ -150,6 +150,24 @@ functions:
           path: /skis/{skiId}
           method: get
           cors: true
+  createSkiComp:
+    handler: functions/createSkiComp.create
+    events:
+      - http:
+          path: skiComps
+          method: post
+          cors: true
+  getSkiComps:
+    handler: functions/getSkiComps.get
+    events:
+      - http:
+          path: skiComps
+          method: get
+          cors: true
+      - http:
+          path: /skiComps/{skiCompId}
+          method: get
+          cors: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
