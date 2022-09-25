@@ -139,6 +139,13 @@ functions:
           path: skis/{skiId}
           method: put
           cors: true
+  deleteSki:
+    handler: functions/deleteSki.deleteSki
+    events:
+      - http:
+          path: skis/{skiId}
+          method: delete
+          cors: true
   getSkis:
     handler: functions/getSkis.get
     events:
@@ -174,6 +181,13 @@ functions:
       - http:
           path: skiComps/{skiCompId}
           method: put
+          cors: true
+  deleteSkiComp:
+    handler: functions/deleteSkiComp.deleteSkiComp
+    events:
+      - http:
+          path: skiComps/{skiCompId}
+          method: delete
           cors: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
