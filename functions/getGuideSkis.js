@@ -20,7 +20,7 @@ export const get = async (event, context) => {
                     path: 'manufacturer',
                     model: 'Manufacturer'
                 }]
-            }]); 
+            }]);
             return response.success({
                 message: 'Guide Skis',
                 data: skis
