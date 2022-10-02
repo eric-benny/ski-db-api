@@ -189,6 +189,38 @@ functions:
           path: skiComps/{skiCompId}
           method: delete
           cors: true
+  createGuideSki:
+    handler: functions/createGuideSki.create
+    events:
+      - http:
+          path: guideSkis
+          method: post
+          cors: true
+  getGuideSkis:
+    handler: functions/getGuideSkis.get
+    events:
+      - http:
+          path: guideSkis
+          method: get
+          cors: true
+      - http:
+          path: /guideSkis/{guideSkiId}
+          method: get
+          cors: true
+  updateGuideSki:
+    handler: functions/updateGuideSki.update
+    events:
+      - http:
+          path: guideSkis/{guideSkiId}
+          method: put
+          cors: true
+  deleteGuideSki:
+    handler: functions/deleteGuideSki.deleteGuideSki
+    events:
+      - http:
+          path: guideSkis/{guideSkiId}
+          method: delete
+          cors: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
