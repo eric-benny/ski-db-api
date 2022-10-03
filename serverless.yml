@@ -204,7 +204,7 @@ functions:
           method: get
           cors: true
       - http:
-          path: /guideSkis/{guideSkiId}
+          path: /guideSkis/{year}
           method: get
           cors: true
   updateGuideSki:
