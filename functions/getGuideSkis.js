@@ -3,6 +3,7 @@ require('../database/model/skiFamily');
 require('../database/model/manufacturer');
 require('../database/model/user');
 require('../database/model/skiComp');
+require('../database/model/ski');
 const response = require('../libs/response');
 const { connectToDatabase } = require('../libs/db');
 
