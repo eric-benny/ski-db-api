@@ -11,7 +11,7 @@ const { connectToDatabase } = require('../libs/db');
 export const get = async (event, context) => {
     try {
         await connectToDatabase();
-        const year = event.pathParameters ? event.pathParameters.year : undefined;
+        const year = event.pathParameters ? event.pathParameters.guideSkiId : undefined;
 
         if (year) {
             const skis = await GuideSkiModel.find({ year: year }).populate([{
