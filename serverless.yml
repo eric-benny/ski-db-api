@@ -196,6 +196,17 @@ functions:
           path: guideSkis
           method: post
           cors: true
+  getGuideSkis:
+    handler: functions/getGuideSkis.get
+    events:
+      - http:
+          path: guideSkis
+          method: get
+          cors: true
+      - http:
+          path: /guideSkis/{guideSkiId}
+          method: get
+          cors: true
   updateGuideSki:
     handler: functions/updateGuideSki.update
     events:
