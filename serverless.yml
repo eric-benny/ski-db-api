@@ -157,6 +157,13 @@ functions:
           path: /skis/{skiId}
           method: get
           cors: true
+  getSkisGuideSkis:
+    handler: functions/getGuideSkis.getSki
+    events:
+      - http:
+          path: /skis/{skiId}/guideSkis
+          method: get
+          cors: true
   createSkiComp:
     handler: functions/createSkiComp.create
     events:

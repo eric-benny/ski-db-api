@@ -37,3 +37,18 @@ export const get = async (event, context) => {
         return response.fail({ message: e.message });
     }
 };
+
+export const getSki = async (event, context) => {
+    try {
+        await connectToDatabase();
+        const skiId = event.pathParameters ? event.pathParameters.skiId : undefined;
+
+        const skis = await GuideSkiModel.find({ ski: skiId });
+        return response.success({
+            message: 'Guide Skis',
+            data: skis
+        });
+    } catch (e) {
+        return response.fail({ message: e.message });
+    }
+};
