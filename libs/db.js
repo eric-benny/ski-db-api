@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 let cachedDB = null;
 
 async function connectToDatabase(options = {}) {
+  console.log(process.env.DB_NAME);
   const db_name = process.env.DB_NAME ? process.env.DB_NAME : 'skiDBdev';
   if (!cachedDB) {
     credstash.get('skidb.mongodb.dev', async (e, secret) => {
