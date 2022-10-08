@@ -20,6 +20,8 @@ service: ski-db-api
 # Check out our docs for more details
 frameworkVersion: '3'
 
+useDotenv: true
+
 provider:
   name: aws
   runtime: nodejs16.x
@@ -31,17 +33,16 @@ provider:
 plugins:
   - serverless-offline
   - serverless-bundle # Package our functions with Webpack
-  - serverless-dotenv-plugin # Load .env as environment variables
 
-custom:
-  database:
-    dev: skiDBdev
-    prod: skiDB
+# custom:
+#   database:
+#     dev: skiDBdev
+#     prod: skiDB
 
 	
 # Environment Variables
-environment:
-  DB_NAME: ${self:custom.database.${self:provider.stage}}
+# environment:
+#   DB_NAME: ${self:custom.database.${self:provider.stage}}
 
 # you can add statements to the Lambda function's IAM Role here
 #  iam:
