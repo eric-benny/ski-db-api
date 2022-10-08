@@ -28,7 +28,8 @@ provider:
   stage: dev
   apiGateway:
     apiKeys:
-      - ${opt:stage}-ski-key
+      - ${opt:stage, self:provider.stage}-ski-key
+  environment: ${file(env.${opt:stage, self:provider.stage}.json)}
 
 plugins:
   - serverless-offline
