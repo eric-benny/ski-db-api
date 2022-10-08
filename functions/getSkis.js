@@ -32,7 +32,7 @@ export const get = async (event, context) => {
         data: ski
       });
     } else {
-      const skis = await SkiModel.find({}).populate(['manufacturer', 'family']);
+      const skis = await SkiModel.find({}).populate(['manufacturer', 'family']).sort({model:1});
       return response.success({
         message: 'Skis',
         data: skis

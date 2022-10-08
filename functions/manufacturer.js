@@ -28,7 +28,7 @@ export const create = async (event, context) => {
 export const get = async (event, context) => {
   try {
     await connectToDatabase();
-    const manufacturers = await ManufacturerModel.find({});
+    const manufacturers = await ManufacturerModel.find({}).sort({name:1});
 
     return response.success({
       data: manufacturers
