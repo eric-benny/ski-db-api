@@ -81,6 +81,7 @@ functions:
           path: manufacturers
           method: post
           cors: true
+          private: true
   getManufacturer:
     handler: functions/manufacturer.get
     events:
@@ -89,6 +90,7 @@ functions:
           method: get
           cors: true
           private: true
+          private: true
   createSkiFamily:
     handler: functions/skiFamily.create
     events:
@@ -96,6 +98,7 @@ functions:
           path: skiFamilies
           method: post
           cors: true
+          private: true
   getSkiFamily:
     handler: functions/skiFamily.get
     events:
@@ -103,10 +106,12 @@ functions:
           path: /manufacturer/{manufacturer}/skiFamilies
           method: get
           cors: true
+          private: true
       - http:
           path: skiFamilies
           method: get
           cors: true
+          private: true
   createUser:
     handler: functions/user.create
     events:
@@ -114,6 +119,7 @@ functions:
           path: users
           method: post
           cors: true
+          private: true
   getUser:
     handler: functions/user.get
     events:
@@ -121,10 +127,12 @@ functions:
           path: /users/{userId}
           method: get
           cors: true
+          private: true
       - http:
           path: /users
           method: get
           cors: true
+          private: true
   addUserFavorite:
     handler: functions/user.addFavorite
     events:
@@ -132,6 +140,7 @@ functions:
           path: users/{userId}/favorites/{skiId}
           method: post
           cors: true
+          private: true
   removeUserFavorite:
     handler: functions/user.removeFavorite
     events:
@@ -139,6 +148,7 @@ functions:
           path: users/{userId}/favorites/{skiId}
           method: delete
           cors: true
+          private: true
   createSki:
     handler: functions/createSki.create
     events:
@@ -146,6 +156,7 @@ functions:
           path: skis
           method: post
           cors: true
+          private: true
   updateSki:
     handler: functions/updateSki.update
     events:
@@ -153,6 +164,7 @@ functions:
           path: skis/{skiId}
           method: put
           cors: true
+          private: true
   deleteSki:
     handler: functions/deleteSki.deleteSki
     events:
@@ -160,6 +172,7 @@ functions:
           path: skis/{skiId}
           method: delete
           cors: true
+          private: true
   getSkis:
     handler: functions/getSkis.get
     events:
@@ -167,10 +180,12 @@ functions:
           path: skis
           method: get
           cors: true
+          private: true
       - http:
           path: /skis/{skiId}
           method: get
           cors: true
+          private: true
   getSkisGuideSkis:
     handler: functions/getGuideSkis.getSki
     events:
@@ -178,6 +193,7 @@ functions:
           path: /skis/{skiId}/guideSkis
           method: get
           cors: true
+          private: true
   createSkiComp:
     handler: functions/createSkiComp.create
     events:
@@ -185,6 +201,7 @@ functions:
           path: skiComps
           method: post
           cors: true
+          private: true
   getSkiComps:
     handler: functions/getSkiComps.get
     events:
@@ -192,10 +209,12 @@ functions:
           path: skiComps
           method: get
           cors: true
+          private: true
       - http:
           path: /skiComps/{skiCompId}
           method: get
           cors: true
+          private: true
   updateSkiComp:
     handler: functions/updateSkiComp.update
     events:
@@ -203,6 +222,7 @@ functions:
           path: skiComps/{skiCompId}
           method: put
           cors: true
+          private: true
   deleteSkiComp:
     handler: functions/deleteSkiComp.deleteSkiComp
     events:
@@ -210,6 +230,7 @@ functions:
           path: skiComps/{skiCompId}
           method: delete
           cors: true
+          private: true
   createGuideSki:
     handler: functions/createGuideSki.create
     events:
@@ -217,6 +238,7 @@ functions:
           path: guideSkis
           method: post
           cors: true
+          private: true
   getGuideSkis:
     handler: functions/getGuideSkis.get
     events:
@@ -224,10 +246,12 @@ functions:
           path: guideSkis
           method: get
           cors: true
+          private: true
       - http:
           path: /guideSkis/{guideSkiId}
           method: get
           cors: true
+          private: true
   updateGuideSki:
     handler: functions/updateGuideSki.update
     events:
@@ -235,6 +259,7 @@ functions:
           path: guideSkis/{guideSkiId}
           method: put
           cors: true
+          private: true
   deleteGuideSki:
     handler: functions/deleteGuideSki.deleteGuideSki
     events:
@@ -242,6 +267,7 @@ functions:
           path: guideSkis/{guideSkiId}
           method: delete
           cors: true
+          private: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
