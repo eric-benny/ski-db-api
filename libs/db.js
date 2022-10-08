@@ -1,7 +1,6 @@
 const Credstash = require('credstash');
 const credstash = new Credstash();
 const mongoose = require('mongoose');
-require('dotenv').config();
 
 let cachedDB = null;
 

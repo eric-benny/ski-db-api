@@ -20,15 +20,14 @@ service: ski-db-api
 # Check out our docs for more details
 frameworkVersion: '3'
 
-useDotenv: true
-
 provider:
   name: aws
   runtime: nodejs16.x
   stage: dev
   apiGateway:
     apiKeys:
-      - ${opt:stage}-ski-key
+      - ${opt:stage, self:provider.stage}-ski-key
+  environment: ${file(env.${opt:stage, self:provider.stage}.json)}
 
 plugins:
   - serverless-offline
