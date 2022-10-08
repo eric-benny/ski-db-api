@@ -90,7 +90,6 @@ functions:
           method: get
           cors: true
           private: true
-          private: true
   createSkiFamily:
     handler: functions/skiFamily.create
     events:
