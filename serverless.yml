@@ -20,6 +20,8 @@ service: ski-db-api
 # Check out our docs for more details
 frameworkVersion: '3'
 
+useDotenv: true
+
 provider:
   name: aws
   runtime: nodejs16.x
