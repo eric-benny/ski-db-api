@@ -26,7 +26,7 @@ provider:
   stage: dev
   apiGateway:
     apiKeys:
-      - czMV4ISh3D2qex6L9hvfJ7eESWKnbCywaapLlJQ5
+      - ${opt:stage}-ski-key
 
 plugins:
   - serverless-offline
